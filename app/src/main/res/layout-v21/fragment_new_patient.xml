@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <androidx.cardview.widget.CardView
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"
+        android:layout_width="360dp"
+        android:layout_height="650dp">
+
+    <TextView
+            android:id="@+id/patient_form_group_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center_horizontal"
+
+            android:text="@string/new_patient_form"
+            android:textAlignment="center"
+            android:textColor="#02075d"
+            android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/patient_form_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:ems="10"
+        android:hint="@string/patient_title"
+        android:autofillHints="Enter the patient's title"
+        android:inputType="text"/>
+
+    <EditText
+        android:id="@+id/patient_form_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="105dp"
+        android:ems="10"
+        android:hint="@string/patient_name"
+        android:autofillHints="Enter the patient's name"
+        android:inputType="text" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="150dp"
+        android:gravity="center"
+        android:paddingLeft="4dp"
+        android:text="Gender"
+        android:ems="15"
+        android:textSize="19sp"
+        />
+
+    <RadioGroup
+        android:id="@+id/gender_radio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="170dp"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+
+            android:text="@string/gender_male" />
+
+        <RadioButton
+            android:layout_width="90dp"
+            android:layout_height="wrap_content"
+
+            android:text="@string/gender_female" />
+
+        <RadioButton
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+
+            android:text="@string/gender_undefined" />
+
+<!--        android:onClick="genderRadioHandler"-->
+    </RadioGroup>
+
+    <EditText
+        android:id="@+id/patient_form_nhs_number"
+        android:layout_width="260dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="215dp"
+        android:ems="10"
+        android:hint="@string/patient_nhs_number_10_digits"
+        android:autofillHints="Enter the patient's name"
+        android:inputType="number" />
+
+    <DatePicker
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="260dp"
+        android:datePickerMode="spinner" />
+
+
+
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.appcompat.widget.LinearLayoutCompat>

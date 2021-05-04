@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name ="patientTabs">
+        <item>Basic Details</item>
+        <item>Medical Details</item>
+        <item>Session Info</item>
+    </string-array>
+</resources>

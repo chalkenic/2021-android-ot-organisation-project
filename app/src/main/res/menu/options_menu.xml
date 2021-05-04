@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/home"
+        android:title="Menu"
+        android:icon="@drawable/ic_baseline_house_24"
+        app:showAsAction="always"
+        />
+
+
+    <item
+        android:id="@+id/crRecord"
+        android:title="New Record"
+        />
+
+    <item
+        android:id="@+id/crPatient"
+        android:title="New Patient"
+        />
+
+    <item
+        android:id="@+id/testPatient"
+        android:title="testPatient"
+        />
+
+</menu>

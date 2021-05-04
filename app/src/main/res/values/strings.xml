@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">Therapist Organisation App</string>
+
+    <!--    Main menu string resources-->
+    <string name="welcome_message">Welcome to the Therapies</string>
+    <string name="welcome_message_2">note tracking app!</string>
+    <string name="new_record_menu_title"><b>Create new Record</b></string>
+    <string name="new_record_menu_details">Create a new patient record which will store notes made during a therapist session</string>
+    <string name="new_patient_menu_title"><b>Add new Patient</b></string>
+    <string name="new_patient_menu_details">Create a new patient for entering up-to-date information on meetings</string>
+    <string name="stethoscope_image"><![CDATA[Stethoscope image /> <!— Contains text alignment & content for new patient CardView title—>]]></string>
+    <string name="search_for_existing_patient"><b>Search Patients</b></string>
+    <string name="new_patient_form">New Patient Form</string>
+    <string name="patient_name">Patient name</string>
+    <string name="patient_title">Patient title</string>
+    <string name="gender_male">Male</string>
+    <string name="gender_female">Female</string>
+    <string name="gender_undefined">Prefer not to say</string>
+    <string name="patient_nhs_number_10_digits">Patient NHS number (10 Digits)</string>
+    <string name="date_of_birth">Date of Birth</string>
+
+
+    <!--    New patient form string resources-->
+
+</resources>
