@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    android:layout_marginTop="4dp"
+    android:layout_marginBottom="15dp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:isScrollContainer="false" >
+
+
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_marginTop="10dp"
+        android:id="@+id/patient_tab_basic_container"
+        android:layout_width="380dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="5dp"
+
+>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="20dp">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/patient_tab_medical_condition"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+
+                android:text="@string/tab_patient_medical_primary_complaint"
+                android:textSize="30sp"
+                android:layout_centerHorizontal="true"
+                 />
+
+            <androidx.appcompat.widget.AppCompatTextView
+
+                android:id="@+id/patient_tab_medical_condition_result"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:layout_centerHorizontal="true"
+
+
+                android:paddingEnd="5dp" android:paddingRight="5dp"
+                android:paddingStart="0dp" android:paddingLeft="0dp"
+
+                android:gravity="end"
+
+
+                android:textSize="40sp" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:weightSum="2"
+            android:background="@drawable/border_text_box"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="120dp"
+            android:layout_marginLeft="4dp" android:layout_marginStart="4dp"
+            android:layout_marginEnd="4dp" android:layout_marginRight="4dp">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_weight="1"
+                android:id="@+id/patient_tab_medical_able"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+
+
+                android:text="@string/tab_patient_medical_physically_able"
+                android:textSize="20sp"
+ />
+
+            <androidx.appcompat.widget.AppCompatTextView
+
+                android:layout_weight="1"
+                android:id="@+id/patient_tab_medical_able_result"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+
+
+
+                android:textSize="20sp"
+
+                 />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:weightSum="2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="180dp"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+
+
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/border_text_box"
+                android:layout_marginLeft="4dp" android:layout_marginStart="4dp"
+                android:layout_marginEnd="4dp" android:layout_marginRight="4dp" >
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/patient_tab_medical_equipment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+
+
+                    android:text="@string/patient_tab_medical_equipment"
+                    android:textSize="20sp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+
+                    android:id="@+id/patient_tab_medical_equipment_result"
+                    android:layout_marginTop="28dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingEnd="7dp" android:paddingRight="7dp"
+                    android:paddingStart="7dp" android:paddingLeft="7dp"
+
+
+                    android:textSize="20sp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/border_text_box"
+                android:layout_marginLeft="4dp" android:layout_marginStart="4dp"
+                android:layout_marginEnd="4dp" android:layout_marginRight="4dp" >
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/patient_tab_medical_living_situation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+
+
+                    android:text="@string/patient_tab_medical_living_situation"
+                    android:textSize="20sp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginStart="10dp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+
+                    android:id="@+id/patient_tab_medical_living_situation_result"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="28dp"
+                    android:paddingEnd="7dp" android:paddingRight="7dp"
+                    android:paddingStart="7dp" android:paddingLeft="7dp"
+
+
+
+                    android:textSize="20sp"
+                    />
+
+            </RelativeLayout>
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</ScrollView>

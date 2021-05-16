@@ -1,40 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.PatientDetailsFragment">
+    tools:context=".fragments.patientTabFragments.ParentPatientDetailsFragment">
 
-    <androidx.appcompat.widget.LinearLayoutCompat
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+
 
         <TextView
+            android:id="@+id/patient_details_title"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:text="Hello"/>
+            android:layout_height="wrap_content"
+            android:textSize="30sp"
+            android:textColor="@color/black"
+            android:layout_gravity="center"
+            android:textAlignment="center"
 
-    </androidx.appcompat.widget.LinearLayoutCompat>
 
-
-    <androidx.viewpager.widget.ViewPager
-        android:id="@+id/patientPager"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="50dp"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
-
+            android:background="#8FCB95"
+            />
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tabLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:tabBackground="@color/purple_200"
+            android:layout_below="@+id/patient_details_title"
+            app:tabBackground="@color/darkerGreen"
+            app:tabTextColor="@color/white"
+            app:tabIndicatorColor="#D4C672"
+            app:tabIndicatorHeight="6dp"
 
             />
 
-    </androidx.viewpager.widget.ViewPager>
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/patientPager"
+            android:layout_below="@+id/tabLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
 
-</FrameLayout>
+
+
+
+
+
+
+
+
+
+<!--    </androidx.viewpager.widget.ViewPager>-->
+
+</RelativeLayout>

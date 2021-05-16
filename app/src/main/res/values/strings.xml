@@ -4,22 +4,80 @@
     <!--    Main menu string resources-->
     <string name="welcome_message">Welcome to the Therapies</string>
     <string name="welcome_message_2">note tracking app!</string>
-    <string name="new_record_menu_title"><b>Create new Record</b></string>
-    <string name="new_record_menu_details">Create a new patient record which will store notes made during a therapist session</string>
+    <string name="menu_all_records_title"><b>All Session Records</b></string>
+    <string name="menu_all_records_details">View all session records made against patients</string>
+    <string name="menu_all_patients_title"><b>All Patient Records</b></string>
+    <string name="menu_all_patients_details"><![CDATA[Access saved patients to amend data & add session records.]]></string>
     <string name="new_patient_menu_title"><b>Add new Patient</b></string>
-    <string name="new_patient_menu_details">Create a new patient for entering up-to-date information on meetings</string>
+    <string name="new_patient_menu_details">Create a new patient for information and sessions.</string>
     <string name="stethoscope_image"><![CDATA[Stethoscope image /> <!— Contains text alignment & content for new patient CardView title—>]]></string>
-    <string name="search_for_existing_patient"><b>Search Patients</b></string>
-    <string name="new_patient_form">New Patient Form</string>
-    <string name="patient_name">Patient name</string>
-    <string name="patient_title">Patient title</string>
-    <string name="gender_male">Male</string>
-    <string name="gender_female">Female</string>
-    <string name="gender_undefined">Prefer not to say</string>
-    <string name="patient_nhs_number_10_digits">Patient NHS number (10 Digits)</string>
-    <string name="date_of_birth">Date of Birth</string>
-
+    <string name="search_for_existing_patient"><b>Search for patient</b></string>
 
     <!--    New patient form string resources-->
+    <string name="new_patient_form">New Patient Form</string>
+    <string name="new_patient_patient_name">Patient name</string>
+    <string name="new_patient_patient_title">Patient title</string>
+    <string name="new_patient_gender_male">Male</string>
+    <string name="new_patient_gender_female">Female</string>
+    <string name="new_patient_gender_undefined">Prefer not to say</string>
+    <string name="new_patient_patient_nhs_number_10_digits">Patient NHS number (10 Digits)</string>
+    <string name="new_patient_date_of_birth">Date of Birth</string>
+    <string name="new_patient_phone_number">Phone number</string>
+    <string name="new_patient_gender">Gender</string>
+    <string name="new_patient_submit">Submit</string>
+    <string name="new_patient_choose_date">Choose date</string>
+
+    <string name="bottom_nav_all_records">All records</string>
+    <string name="bottom_nav_all_patients">All patients</string>
+    <string name="bottom_nav_home">Home</string>
+
+    <!-- Adapter resources-->
+    <string name="all_patients_adapter_nhs_text">NHS number: </string>
+    <string name="all_patients_adapter_patient_icon">patient icon</string>
+
+    <string name="patient_tab_basic_patient_profile_image">Patient profile image</string>
+    <string name="patient_tab_basic_pick_image_intent_text">Choose patient image</string>
+    <string name="patient_tab_basic_plus_symbol_if_no_image_added">Plus symbol if no image added</string>
+    <string name="patient_tab_basic_date_of_birth">Date of birth:</string>
+    <string name="patient_tab_basic_nhs_number">NHS number:</string>
+    <string name="patient_tab_basic_title">Preferred title:</string>
+    <string name="patient_tab_basic_gender">Gender:</string>
+    <string name="patient_tab_basic_phone_no">Phone no:</string>
+    <string name="patient_tab_basic_phone_no_explain">Hold number to call</string>
+    <string name="patient_tab_basic_phone_no_explain_button">Change number</string>
+
+    <!--    Change number resources-->
+    <string name="dialog_button_submit">Submit</string>
+    <string name="dialog_button_cancel">Cancel</string>
+    <string name="dialog_phone_no_tooltip">Enter new number</string>
+    <string name="dialog_phone_enter_new_number_hint">New number (5+ digits)</string>
+
+    <!--    options menu-->
+    <string name="options_menu_crRecord_title">New Record</string>
+    <string name="options_menu_crPatient_title">New Patient</string>
+    <string name="options_menu_allPatients_title">All Patients</string>
+    <string name="options_menu_allrecords_title">All Records</string>
+    <string name="patient_tab_title_concat">%1$s\'s Record </string>
+    <string name="patient_medical_tab_no_info_title">Enter medical information</string>
+    <string name="medical_tab_new_details_able_text">Independently mobile?</string>
+    <string name="medical_tab_new_details_condition">Condition</string>
+    <string name="patient_medical_result_concat">Condition: %1$s</string>
+    <string name="dialog_condition_exists_color">condition_exists_color</string>
+    <string name="medical_tab_new_details_equipment">Current equipment usage</string>
+    <string name="medical_tab_new_details_living_situation">Living situation</string>
+    <string name="tab_patient_medical_primary_complaint"><b>Primary Complaint</b></string>
+    <string name="tab_patient_medical_physically_able"><b>Physically able:</b></string>
+    <string name="patient_tab_medical_equipment"><b>Equipment</b></string>
+    <string name="patient_tab_medical_living_situation"><b>Living Situation</b></string>
+    <string name="list_line_break">|</string>
+    <string name="patient_tab_sessions_title">Sessions</string>
+    <string name="patient_tab_sessions_new_session_button">new Session</string>
+    <string name="dialog_new_session_type">Session Type</string>
+    <string name="dialog_new_session_notes">Session Notes...</string>
+    <string name="dialog_new_session_session_type_result">TAP TO CHOOSE</string>
+    <string name="options_menu_home_icon_title">Home</string>
+    <string name="all_patient_sessions_title">All Patient Sessions</string>
+    <string name="dialog_new_session_notes_title">Session notes</string>
+
 
 </resources>

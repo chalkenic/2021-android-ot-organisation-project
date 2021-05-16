@@ -7,8 +7,16 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-
     <color name="grey">#D3D3D3</color>
-
     <color name = "colorBackground">#C5ECEC</color>
+
+    <color name = "darkerGreen">#446147</color>
+
+    <color name = "sessionType1"> #9DBBE3</color>
+    <color name = "sessionType2">#BFE3DF</color>
+    <color name = "sessionType3">#FFF5CC</color>
+    <color name = "sessionType4">#FFD9BD</color>
+    <color name = "sessionType5">#F7CECA</color>
+
+
 </resources>

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="320dp"
+    android:layout_marginLeft="40dp"
+    android:layout_marginStart="40dp"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    android:orientation="vertical">
+
+<!--    <androidx.appcompat.widget.AppCompatTextView-->
+<!--        android:layout_width="300dp"-->
+<!--        android:layout_height="wrap_content"-->
+
+<!--        android:textSize="20sp"-->
+<!--        android:layout_marginTop="5dp"-->
+<!--        android:text="@string/medical_tab_new_details_condition"/>-->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <ImageView
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginStart="5dp"
+            android:id="@+id/condition_search_check_in"
+            android:contentDescription="@string/dialog_condition_exists_color"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/circle_red"
+
+             />
+        <SearchView
+            android:layout_toRightOf="@id/condition_search_check_in"
+            android:layout_toEndOf="@id/condition_search_check_in"
+            android:id="@+id/condition_search_view"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:queryHint="@string/medical_tab_new_details_condition"
+            android:autofillHints="@string/medical_tab_new_details_condition"
+             />
+
+
+
+    <TextView
+        android:id="@+id/condition_search_view_result"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:textSize="20sp"/>
+
+    </RelativeLayout>
+
+
+
+<!--    <requestFocus />-->
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:text="@string/medical_tab_new_details_able_text"/>
+
+        <androidx.appcompat.widget.AppCompatCheckBox
+            android:id="@+id/checkbox_medical_record_independent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp" />
+
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <EditText
+        android:id="@+id/medical_record_equipment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/medical_tab_new_details_equipment"
+        android:autofillHints="Current equipment usage"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/medical_record_living_situation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/medical_tab_new_details_living_situation"
+        android:autofillHints="Current equipment usage"
+        android:inputType="text" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_medical_record_submit"
+        android:layout_gravity="center"
+        android:ems="8"
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button_dialog_confirm_new_phone_no"
+
+        android:text="@string/new_patient_submit"
+
+ />
+
+</androidx.appcompat.widget.LinearLayoutCompat>

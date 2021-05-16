@@ -4,6 +4,14 @@
     <string-array name ="patientTabs">
         <item>Basic Details</item>
         <item>Medical Details</item>
-        <item>Session Info</item>
+        <item>Sessions</item>
+    </string-array>
+
+    <string-array name ="sessionTypes">
+        <item><b>Phone Call</b></item>
+        <item><b>Face-to-Face</b></item>
+        <item><b>Email</b></item>
+        <item><b>SMS</b></item>
+        <item><b>Letter</b></item>
     </string-array>
 </resources>

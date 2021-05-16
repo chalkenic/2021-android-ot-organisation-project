@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:isScrollContainer="false">
+
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/patient_tab_basic_container"
+        android:layout_width="380dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="5dp"
+>
+
+<!--        <RelativeLayout-->
+<!--            android:id="@+id/shape_layout"-->
+<!--            android:layout_width="106dp"-->
+<!--            android:layout_height="106dp"-->
+<!--            android:background="@drawable/rounded_profile_textview"-->
+<!--            android:layout_centerVertical="true"-->
+<!--            android:layout_centerHorizontal="true"-->
+<!--            >-->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/patient_tab_basic_photo_frame"
+                android:background="@drawable/border_image_circle"
+                android:layout_marginTop="10dp"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center_horizontal"
+                app:cardCornerRadius="75dp">
+
+                <ImageView
+                    android:id="@+id/patient_tab_basic_pic"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:contentDescription="@string/patient_tab_basic_patient_profile_image" />
+
+                <ImageButton
+                    android:clickable="false"
+                    android:id="@+id/patient_tab_basic_add_photo_button"
+                    android:layout_width="170dp"
+                    android:layout_height="170dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/icon_add_new_item"
+                    android:visibility="gone"
+                    android:contentDescription="@string/patient_tab_basic_plus_symbol_if_no_image_added" />
+
+            </androidx.cardview.widget.CardView>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="180dp">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/patient_tab_basic_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="@string/patient_tab_basic_title"
+                android:textSize="20sp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+
+                android:id="@+id/patient_tab_basic_title_result"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:paddingEnd="5dp" android:paddingRight="5dp"
+                android:paddingStart="0dp" android:paddingLeft="0dp"
+
+                android:gravity="end"
+                android:layout_toRightOf="@+id/patient_tab_basic_title"
+                android:layout_toEndOf="@+id/patient_tab_basic_title"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+
+                android:textSize="20sp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="220dp">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/patient_tab_basic_gender"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="@string/patient_tab_basic_gender"
+                android:textSize="20sp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+
+                android:id="@+id/patient_tab_basic_gender_result"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingEnd="5dp" android:paddingRight="5dp"
+                android:paddingStart="5dp" android:paddingLeft="0dp"
+
+                android:gravity="end"
+
+                android:layout_toRightOf="@+id/patient_tab_basic_gender"
+                android:layout_toEndOf="@+id/patient_tab_basic_gender"
+                android:textSize="20sp"
+
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                 />
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="260dp">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/patient_tab_basic_age"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="@string/patient_tab_basic_date_of_birth"
+                android:textSize="20sp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+
+                android:id="@+id/patient_tab_basic_age_result"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingEnd="5dp" android:paddingRight="5dp"
+                android:paddingStart="0dp" android:paddingLeft="0dp"
+
+                android:gravity="end"
+                android:layout_toRightOf="@+id/patient_tab_basic_age"
+                android:layout_toEndOf="@+id/patient_tab_basic_age"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+
+                android:textSize="20sp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="300dp" >
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/patient_tab_basic_nhs_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="@string/patient_tab_basic_nhs_number"
+                android:textSize="20sp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+
+                android:id="@+id/patient_tab_basic_nhs_number_result"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingEnd="5dp" android:paddingRight="5dp"
+                android:paddingStart="0dp" android:paddingLeft="0dp"
+
+                android:gravity="end"
+                android:layout_toRightOf="@+id/patient_tab_basic_nhs_number"
+                android:layout_toEndOf="@+id/patient_tab_basic_nhs_number"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+
+                android:textSize="20sp"
+
+                />
+
+        </RelativeLayout>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/patient_tab_basic_phone_container"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="horizontal"
+            android:layout_marginTop="340dp"
+            android:clickable="true"
+            android:focusable="true"
+
+            android:layout_marginStart="4dp"
+            android:layout_marginLeft="4dp"
+            android:layout_marginEnd="4dp"
+            android:layout_marginRight="4dp"
+
+            android:background="@drawable/border_text_box"
+            >
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/patient_tab_basic_phone_no_edit"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:autofillHints="Change Phone number: "
+                android:inputType="phone"
+                android:visibility="gone"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/patient_tab_basic_phone_no"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:paddingTop="5dp"
+
+                android:text="@string/patient_tab_basic_phone_no"
+                android:textSize="20sp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+
+                android:id="@+id/patient_tab_basic_phone_no_result"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:paddingEnd="5dp" android:paddingRight="5dp"
+                android:paddingStart="0dp" android:paddingLeft="0dp"
+                android:paddingTop="5dp"
+
+                android:gravity="end"
+                android:layout_toRightOf="@+id/patient_tab_basic_phone_no"
+                android:layout_toEndOf="@+id/patient_tab_basic_phone_no"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+
+                android:textSize="20sp"
+                />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="390dp" >
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/patient_tab_basic_phone_no_explain"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="@string/patient_tab_basic_phone_no_explain"
+                android:textSize="20sp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/patient_tab_basic_phone_no_explain_button"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/button_dialog_confirm_new_phone_no"
+
+
+                android:layout_marginStart="28dp"
+                android:layout_marginLeft="28dp"
+
+                android:layout_marginEnd="32dp"
+
+
+                android:layout_marginRight="32dp"
+
+                android:layout_toEndOf="@+id/patient_tab_basic_phone_no_explain"
+                android:layout_toRightOf="@+id/patient_tab_basic_phone_no_explain"
+                android:gravity="center_horizontal"
+                android:padding="3dp"
+
+                android:shape="rectangle"
+
+                android:text="@string/patient_tab_basic_phone_no_explain_button"
+                android:textSize="15sp" />
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</ScrollView>

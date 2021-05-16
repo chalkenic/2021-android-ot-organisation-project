@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="4dp"
         android:orientation="vertical"
-        android:background="@drawable/welcome_message_border">
+        android:background="@drawable/border_welcome_message">
 
         <TextView
             android:layout_width="match_parent"
@@ -46,71 +46,15 @@
         android:layout_gravity="center"
         android:layout_marginTop="5dp">
 
-        <!-- CardView for new record details -->
-        <androidx.cardview.widget.CardView
-            android:id="@+id/new_record_card"
-            android:layout_gravity="center"
-            android:layout_width="380dp"
-            android:layout_height="180dp"
-            card_view:cardCornerRadius="4dp"
-
-            android:clickable="true"
-            android:focusable="true"
-            android:foreground="?android:attr/selectableItemBackground">
-
-            <!-- New Record image
-            Free image sourced from:
-            https://www.pexels.com/photo/mockup-of-white-clipboard-with-blank-paper-4226805/ -->
-            <ImageView
-                android:id="@+id/new_record_image"
-                android:layout_width="190dp"
-                android:layout_height="160dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_gravity="start"
-                android:src="@drawable/new_record_image"
-                android:background="@drawable/picture_border"
-                android:contentDescription="@string/stethoscope_image"
-                android:layout_marginStart="10dp" />
-
-            <!-- Contains text alignment & content for new record CardView title-->
-            <TextView
-                android:id="@+id/new_record_title"
-                android:layout_width="170dp"
-                android:padding="4dp"
-                android:layout_height="70dp"
-                android:layout_gravity="end"
-                android:gravity="center"
-
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                android:text="@string/new_record_menu_title"/>
-
-            <!-- Contains text alignment & content for new patient CardView description-->
-            <TextView
-                android:id="@+id/new_record_details"
-                android:padding="4dp"
-                android:layout_width="170dp"
-                android:layout_height="110dp"
-                android:layout_gravity="end"
-                android:layout_marginTop="70dp"
-                android:gravity="top"
-
-                android:textAlignment="center"
-                android:textSize="15sp"
-                android:text="@string/new_record_menu_details"/>
-
-        </androidx.cardview.widget.CardView>
-
-
         <!-- CardView for new patient details -->
         <androidx.cardview.widget.CardView
             android:id="@+id/new_patient_card"
             android:layout_marginTop="5dp"
             android:layout_gravity="center"
             android:layout_width="380dp"
-            android:layout_height="180dp"
+            android:layout_height="130dp"
             card_view:cardCornerRadius="4dp"
+            android:paddingBottom="15dp"
 
             android:clickable="true"
             android:focusable="true"
@@ -123,12 +67,12 @@
             <ImageView
                 android:id="@id/new_patient_image"
                 android:layout_width="190dp"
-                android:layout_height="160dp"
+                android:layout_height="110dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="10dp"
                 android:layout_gravity="start"
                 android:src="@drawable/new_patient_image"
-                android:background="@drawable/picture_border"
+                android:background="@drawable/border_patient"
                 android:contentDescription="@string/stethoscope_image"
                 android:layout_marginStart="10dp" />
 
@@ -137,7 +81,7 @@
                 android:id="@+id/new_patient_title"
                 android:layout_width="170dp"
                 android:padding="4dp"
-                android:layout_height="70dp"
+                android:layout_height="50dp"
                 android:layout_gravity="end"
                 android:gravity="center"
 
@@ -150,9 +94,9 @@
                 android:id="@+id/new_patient_details"
                 android:padding="4dp"
                 android:layout_width="170dp"
-                android:layout_height="110dp"
+                android:layout_height="70dp"
                 android:layout_gravity="end"
-                android:layout_marginTop="70dp"
+                android:layout_marginTop="40dp"
                 android:gravity="center_horizontal"
 
                 android:textAlignment="center"
@@ -161,45 +105,130 @@
 
         </androidx.cardview.widget.CardView>
 
-        <!-- CardView dictates searchBar style -->
+
+
+
+        <!-- CardView for new record details -->
         <androidx.cardview.widget.CardView
-            android:id="@+id/search_patient_card"
-            android:layout_marginTop="5dp"
+            android:id="@+id/all_records_card"
             android:layout_gravity="center"
             android:layout_width="380dp"
-            android:layout_height="79dp"
-            android:background="@drawable/menu_search_border"
-            card_view:cardCornerRadius="4dp">
+            android:layout_height="130dp"
+            card_view:cardCornerRadius="4dp"
+            android:layout_marginTop="15dp"
 
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground">
 
+            <!-- New Record image
+            Free image sourced from:
+            https://www.pexels.com/photo/mockup-of-white-clipboard-with-blank-paper-4226805/ -->
+            <ImageView
+                android:id="@+id/all_records_image"
+                android:layout_width="190dp"
+                android:layout_height="110dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="start"
+                android:src="@drawable/new_record_image"
+                android:background="@drawable/border_patient"
+                android:contentDescription="@string/stethoscope_image"
+                android:layout_marginStart="10dp" />
 
-            <!-- search bar title -->
+            <!-- Contains text alignment & content for new record CardView title-->
             <TextView
-                android:layout_gravity="top"
-                android:layout_width="match_parent"
-                android:layout_height="35dp"
+                android:id="@+id/all_records_title"
+                android:layout_width="170dp"
+                android:padding="4dp"
+                android:layout_height="50dp"
+                android:layout_gravity="end"
                 android:gravity="center"
 
-
-                android:textSize="18sp"
                 android:textColor="@color/black"
-                android:text="@string/search_for_existing_patient"/>
+                android:textSize="18sp"
+                android:text="@string/menu_all_records_title"/>
 
+            <!-- Contains text alignment & content for new patient CardView description-->
             <TextView
-                android:layout_gravity="center"
-                android:layout_width="340dp"
-                android:layout_height="2dp"
-                android:layout_marginBottom="2dp"
-                android:gravity="center"
-                android:background="@drawable/border_bottom_line" />
+                android:id="@+id/all_records_details"
+                android:padding="4dp"
+                android:layout_width="170dp"
+                android:layout_height="70dp"
+                android:layout_gravity="end"
+                android:layout_marginTop="40dp"
+                android:gravity="center_horizontal"
 
-            <!-- Search bar -->
-            <androidx.appcompat.widget.SearchView
-                android:layout_gravity="bottom"
-                android:layout_width="match_parent"
-                android:layout_height="40dp" />
+                android:textAlignment="center"
+                android:textSize="15sp"
+                android:text="@string/menu_all_records_details"/>
 
         </androidx.cardview.widget.CardView>
+
+        <!-- CardView for new patient details -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/menu_all_patients_card"
+            android:layout_marginTop="15dp"
+            android:layout_gravity="center"
+            android:layout_width="380dp"
+            android:layout_height="130dp"
+            card_view:cardCornerRadius="4dp"
+            android:layout_marginBottom="15dp"
+
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground">
+
+
+
+            <!-- Free image sourced from -->
+            <!-- https://www.pexels.com/photo/medical-stethoscope-with-red-paper-heart-on-white-surface-4386467/ -->
+            <ImageView
+                android:id="@+id/menu_new_patient_image"
+                android:layout_width="190dp"
+                android:layout_height="110dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="start"
+                android:src="@drawable/icon_menu_people"
+                android:background="@drawable/border_patient"
+                android:contentDescription="@string/stethoscope_image"
+                android:layout_marginStart="10dp" />
+
+            <!-- patient title -->
+            <TextView
+                android:id="@+id/menu_all_patients_title"
+                android:layout_width="170dp"
+                android:padding="4dp"
+                android:layout_height="50dp"
+                android:layout_gravity="end"
+                android:gravity="center"
+
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:text="@string/menu_all_patients_title"/>
+
+            <!-- Contains text alignment & content for new patient CardView description -->
+            <TextView
+                android:id="@+id/menu_all_patients_details"
+                android:padding="4dp"
+                android:layout_width="170dp"
+                android:layout_height="70dp"
+                android:layout_gravity="end"
+                android:layout_marginTop="40dp"
+                android:gravity="center_horizontal"
+
+                android:textAlignment="center"
+                android:textSize="15sp"
+                android:text="@string/menu_all_patients_details"/>
+
+        </androidx.cardview.widget.CardView>
+
+
+
+
+
+
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 

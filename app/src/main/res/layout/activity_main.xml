@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,6 +8,7 @@
     android:orientation="vertical"
     android:background="@color/colorBackground"
     tools:context=".MainActivity">
+
 
    <androidx.appcompat.widget.Toolbar
        android:layout_width="match_parent"
@@ -18,7 +20,21 @@
     <androidx.fragment.app.FragmentContainerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/fragment_container"
+        android:layout_marginTop="56dp"
+        android:layout_marginBottom="56dp"
+        android:id="@+id/fragment_container" />
+
+<!--    Code adapted from Techenum: Using Bottom Navigation Bar in Android: An Easy Guide-->
+<!--    Available at: https://techenum.com/bottom-navigation-bar-android/-->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/nav_bar_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        android:layout_gravity="bottom"
+        app:menu="@menu/bottom_list_menu"
+
         />
 
-</androidx.appcompat.widget.LinearLayoutCompat>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

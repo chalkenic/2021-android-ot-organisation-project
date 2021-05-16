@@ -1,46 +1,52 @@
 package com.example.otorganisationapp.fragments;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.widget.AppCompatButton;
-import androidx.appcompat.widget.LinearLayoutCompat;
 import androidx.cardview.widget.CardView;
-import androidx.core.view.LayoutInflaterCompat;
 import androidx.fragment.app.Fragment;
 
 import com.example.otorganisationapp.MainActivity;
 import com.example.otorganisationapp.R;
+import com.example.otorganisationapp.StaticMethods;
+import com.example.otorganisationapp.repository.OTDatabase;
 
 public class MainMenuFragment extends Fragment {
+
+    MainActivity mainActivity;
+
+    OTDatabase db;
 
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_main_menu, container, false);
-        MainActivity mainActivity = (MainActivity) getActivity();
+         mainActivity = (MainActivity) getActivity();
 
 
-//        CardView cardview =(CardView) inflater.from(getContext()).inflate(R.id.new_patient_card, null);
-        CardView newRecordCard = (CardView) v.findViewById(R.id.new_record_card);
+         // Clickable card views.
+        CardView allRecordsCard = (CardView) v.findViewById(R.id.all_records_card);
         CardView newPatientCard = (CardView) v.findViewById(R.id.new_patient_card);
+        CardView allPatientsCard = (CardView) v.findViewById(R.id.menu_all_patients_card);
 
 
 
-        newRecordCard.setOnClickListener(new View.OnClickListener() {
+        allRecordsCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mainActivity.changeCurrentFragment(new NewRecordFragment(), "New Record");
+                mainActivity.changeCurrentFragment(new AllRecordsFragment(), "New Record");
+            }
+        });
+
+        allPatientsCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mainActivity.changeCurrentFragment(new AllPatientsFragment(), "New Record");
             }
         });
 
@@ -52,8 +58,11 @@ public class MainMenuFragment extends Fragment {
         });
 
 
+
         return v;
     }
+
+
 
 
 //    public void onClickNewPatient(View v) {

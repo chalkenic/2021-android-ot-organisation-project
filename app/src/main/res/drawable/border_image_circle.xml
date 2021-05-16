@@ -1,0 +1,6 @@
+<!-- code adapted from skscript.com: How to make a Circular Image View in Android without Third-Party Library
+available at: <shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="oval"> -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="oval">
+    <solid android:color="#fff"/>
+    <stroke android:width="2dp" android:color="@color/black" />
+</shape>

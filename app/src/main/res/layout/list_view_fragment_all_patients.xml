@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/patient_list_view"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginBottom="2dp"
+    android:layout_marginTop="2dp">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/patient_list_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="10dp"
+        android:scaleType="centerCrop"
+        android:contentDescription="@string/all_patients_adapter_patient_icon" />
+
+    <TextView
+
+        android:id="@+id/patient_list_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/patient_list_image"
+        android:layout_toEndOf="@+id/patient_list_image"
+        android:layout_centerVertical="true"
+        android:paddingTop="10dp"
+
+        android:maxLength="18"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        />
+    
+    <TextView
+        android:id="@+id/patient_list_nhs_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_alignParentEnd="true"
+
+        android:paddingTop="10dp"
+        android:paddingRight="10dp"
+        android:paddingEnd="10dp"
+        android:paddingStart="0dp"
+        android:paddingLeft="0dp"
+
+        android:textColor="@color/black"
+        android:textSize="15sp"
+
+        tools:ignore="RelativeOverlap" />
+
+</RelativeLayout>

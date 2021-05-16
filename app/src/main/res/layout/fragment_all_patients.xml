@@ -2,7 +2,7 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent" >
 
     <androidx.cardview.widget.CardView
         android:layout_width="360dp"
@@ -12,10 +12,10 @@
         android:layout_marginRight="25dp">
 
         <TextView
-            android:id="@+id/all_sessions_title"
+            android:id="@+id/all_patients_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/all_patient_sessions_title"
+            android:text="@string/bottom_nav_all_patients"
             android:gravity="center_horizontal"
             android:textSize="25sp"
             android:textColor="@color/black"
@@ -32,7 +32,7 @@
         android:layout_marginBottom="5dp">
 
         <ListView
-            android:id="@+id/all_sessions_list_view"
+            android:id="@+id/all_patients_list_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 

@@ -4,26 +4,25 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/home"
-        android:title="Menu"
-        android:icon="@drawable/ic_baseline_house_24"
+        android:id="@+id/options_menu_home"
+        android:icon="@drawable/icon_home"
         app:showAsAction="always"
+        android:title="@string/options_menu_home_icon_title"
         />
 
 
     <item
-        android:id="@+id/crRecord"
-        android:title="New Record"
+        android:id="@+id/options_menu_crPatient"
+        android:title="@string/options_menu_crPatient_title"
         />
 
     <item
-        android:id="@+id/crPatient"
-        android:title="New Patient"
+        android:id="@+id/options_menu_allPatients"
+        android:title="@string/options_menu_allPatients_title"
         />
-
     <item
-        android:id="@+id/testPatient"
-        android:title="testPatient"
+        android:id="@+id/options_menu_allRecords"
+        android:title="@string/options_menu_allrecords_title"
         />
 
 </menu>
