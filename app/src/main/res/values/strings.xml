@@ -27,6 +27,7 @@
     <string name="new_patient_submit">Submit</string>
     <string name="new_patient_choose_date">Choose date</string>
 
+    <!-- Bottom Nav bar-->
     <string name="bottom_nav_all_records">All records</string>
     <string name="bottom_nav_all_patients">All patients</string>
     <string name="bottom_nav_home">Home</string>
@@ -35,6 +36,7 @@
     <string name="all_patients_adapter_nhs_text">NHS number: </string>
     <string name="all_patients_adapter_patient_icon">patient icon</string>
 
+    <!-- patient basic fragment-->
     <string name="patient_tab_basic_patient_profile_image">Patient profile image</string>
     <string name="patient_tab_basic_pick_image_intent_text">Choose patient image</string>
     <string name="patient_tab_basic_plus_symbol_if_no_image_added">Plus symbol if no image added</string>
@@ -46,38 +48,55 @@
     <string name="patient_tab_basic_phone_no_explain">Hold number to call</string>
     <string name="patient_tab_basic_phone_no_explain_button">Change number</string>
 
-    <!--    Change number resources-->
+    <!-- patient medical details fragment-->
+    <string name="patient_tab_title_concat">%1$s\'s Record </string>
+    <string name="patient_tab_medical_no_info_title">Enter medical information</string>
+
+    <string name="patient_tab_medical_primary_complaint"><b>Primary Complaint</b></string>
+    <string name="patient_tab_medical_physically_able"><b>Physically able:</b></string>
+    <string name="patient_tab_medical_equipment"><b>Equipment</b></string>
+    <string name="patient_tab_medical_living_situation"><b>Living Situation</b></string>
+
+    <!-- patient sessions -->
+    <string name="patient_tab_sessions_title">Sessions</string>
+    <string name="patient_tab_sessions_list_data">"Record %1$s notes for %2$s</string>
+    <string name="list_line_break">|</string>
+    <string name="patient_tab_sessions_new_session_button">new Session</string>
+    <string name="all_patient_sessions_title">All Patient Sessions</string>
+    <string name="all_patient_sessions_row_data">Record %1$s notes for %2$s</string>
+<!--    <string name="all_patient_sessions_name_short">Patient: %1$s </string>-->
+<!--    <string name="all_patient_sessions_name_long">Patient: %1$s …</string>-->
+
+
+
+    <!-- Change number resources-->
     <string name="dialog_button_submit">Submit</string>
     <string name="dialog_button_cancel">Cancel</string>
     <string name="dialog_phone_no_tooltip">Enter new number</string>
     <string name="dialog_phone_enter_new_number_hint">New number (5+ digits)</string>
 
-    <!--    options menu-->
+    <!-- options menu-->
+    <string name="options_menu_home_icon_title">Home</string>
     <string name="options_menu_crRecord_title">New Record</string>
     <string name="options_menu_crPatient_title">New Patient</string>
     <string name="options_menu_allPatients_title">All Patients</string>
-    <string name="options_menu_allrecords_title">All Records</string>
-    <string name="patient_tab_title_concat">%1$s\'s Record </string>
-    <string name="patient_medical_tab_no_info_title">Enter medical information</string>
-    <string name="medical_tab_new_details_able_text">Independently mobile?</string>
-    <string name="medical_tab_new_details_condition">Condition</string>
-    <string name="patient_medical_result_concat">Condition: %1$s</string>
+    <string name="options_menu_allRecords_title">All Records</string>
+
+    <!-- New patient medical details-->
     <string name="dialog_condition_exists_color">condition_exists_color</string>
-    <string name="medical_tab_new_details_equipment">Current equipment usage</string>
-    <string name="medical_tab_new_details_living_situation">Living situation</string>
-    <string name="tab_patient_medical_primary_complaint"><b>Primary Complaint</b></string>
-    <string name="tab_patient_medical_physically_able"><b>Physically able:</b></string>
-    <string name="patient_tab_medical_equipment"><b>Equipment</b></string>
-    <string name="patient_tab_medical_living_situation"><b>Living Situation</b></string>
-    <string name="list_line_break">|</string>
-    <string name="patient_tab_sessions_title">Sessions</string>
-    <string name="patient_tab_sessions_new_session_button">new Session</string>
+    <string name="dialog_medical_tab_new_details_equipment">Current equipment usage</string>
+    <string name="dialog_medical_tab_new_details_living_situation">Living situation</string>
+    <string name="dialog_patient_medical_tab_result_concat">Condition: %1$s</string>
+    <string name="dialog_medical_tab_new_details_able_text">Independently mobile?</string>
+    <string name="dialog_medical_tab_new_details_condition">Condition</string>
+
+    <!-- New patient session details-->
     <string name="dialog_new_session_type">Session Type</string>
-    <string name="dialog_new_session_notes">Session Notes...</string>
+    <string name="dialog_new_session_notes">Session Notes…</string>
     <string name="dialog_new_session_session_type_result">TAP TO CHOOSE</string>
-    <string name="options_menu_home_icon_title">Home</string>
-    <string name="all_patient_sessions_title">All Patient Sessions</string>
     <string name="dialog_new_session_notes_title">Session notes</string>
+    <string name="all_patient_sessions_name" >Patient: %1$s</string>
+    <string name="all_patient_sessions_name_long" >Patient: %1$s…</string>
 
 
 </resources>

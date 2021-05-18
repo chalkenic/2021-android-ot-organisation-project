@@ -1,18 +1,14 @@
 package com.example.otorganisationapp.fragments.dialogs;
 
-import android.app.Dialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,6 +16,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatButton;
+import androidx.appcompat.widget.AppCompatImageView;
+import androidx.appcompat.widget.AppCompatTextView;
 import androidx.fragment.app.DialogFragment;
 
 import com.example.otorganisationapp.MainActivity;
@@ -61,15 +59,15 @@ public class PatientMedicalDetailsDialog extends DialogFragment {
         ArrayList<String> conditionNames = new ArrayList<>();
 
         for (Condition condition : conditionList) {
-            conditionNames.add(condition.getName());
+            conditionNames.add(condition.getName().toLowerCase());
         }
 
         View v = inflater.inflate(R.layout.dialog_medical_tab_new_details, container, false);
 
         // Fields refer to adding/assigning conditions to patient.
         SearchView conditionSearchView = (SearchView) v.findViewById(R.id.condition_search_view);
-        TextView conditionSearchViewResult = (TextView) v.findViewById(R.id.condition_search_view_result);
-        ImageView isConditionInDbIndicator = (ImageView) v.findViewById(R.id.condition_search_check_in);
+        AppCompatTextView conditionSearchViewResult = (AppCompatTextView) v.findViewById(R.id.condition_search_view_result);
+        AppCompatImageView isConditionInDbIndicator = (AppCompatImageView) v.findViewById(R.id.condition_search_check_in);
 
         // Regular fields to confirm patient's current health state.
         CheckBox isIndependent = (CheckBox) v.findViewById(R.id.checkbox_medical_record_independent);
@@ -98,7 +96,7 @@ public class PatientMedicalDetailsDialog extends DialogFragment {
                         Toast.makeText(getContext(),
                                 "Condition " + existingCondition.get(0).getName() + " applied to patient.",
                                 Toast.LENGTH_SHORT).show();
-                        String patientTabTitle = String.format(getResources().getString(R.string.patient_medical_result_concat),
+                        String patientTabTitle = String.format(getResources().getString(R.string.dialog_patient_medical_tab_result_concat),
                                 db.conditionDAO().getConditionById(patient.getPrimaryComplaint()).getName());
 
                         // Apply patient's condition to TextView.
@@ -106,13 +104,14 @@ public class PatientMedicalDetailsDialog extends DialogFragment {
 
 
                     } else {
-                        condition = new Condition(entry);
+                        // Create condition & apply to database.
+                        condition = new Condition(entry.toLowerCase());
                         db.conditionDAO().insertCondition(condition);
 
-                        //Update condition in class to reflect new database entry (i.e. grab id).
+                        //Update condition within dialog class to reflect new database entry (i.e. grab id).
                         condition.setId(db.conditionDAO().getConditionsByName(condition.getName()).get(0).getId());
 
-                        // Assign condition to patient & update database.
+                        // Assign condition id to patient & update database.
                         patient.setPrimaryComplaint(condition.getId());
                         db.patientDAO().updatePatient(patient);
 
@@ -120,7 +119,7 @@ public class PatientMedicalDetailsDialog extends DialogFragment {
                                 "Condition " + condition.getName() + " created for patient.",
                                 Toast.LENGTH_SHORT).show();
 
-                        String patientTabTitle = String.format(getResources().getString(R.string.patient_medical_result_concat),
+                        String patientTabTitle = String.format(getResources().getString(R.string.dialog_patient_medical_tab_result_concat),
                                 db.conditionDAO().getConditionById(patient.getPrimaryComplaint()).getName());
                         // Apply patient's condition to TextView.
                         conditionSearchViewResult.setText(patientTabTitle);
@@ -139,7 +138,7 @@ public class PatientMedicalDetailsDialog extends DialogFragment {
 
                     // Change colour of indicator depending on whether entry at current time matches
                     // a Condition in database.
-                    if (conditionNames.contains(newText)) {
+                    if (conditionNames.contains(newText.toLowerCase())) {
                         isConditionInDbIndicator.setImageResource(R.drawable.circle_green);
                     } else {
                         isConditionInDbIndicator.setImageResource(R.drawable.circle_red);
@@ -152,7 +151,7 @@ public class PatientMedicalDetailsDialog extends DialogFragment {
             // data.
         } else {
 
-            String patientTabTitle = String.format(getResources().getString(R.string.patient_medical_result_concat),
+            String patientTabTitle = String.format(getResources().getString(R.string.dialog_patient_medical_tab_result_concat),
                     db.conditionDAO().getConditionById(patient.getPrimaryComplaint()).getName());
             conditionSearchViewResult.setText(patientTabTitle);
 

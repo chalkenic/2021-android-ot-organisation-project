@@ -18,7 +18,7 @@
 
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/patient_medical_tab_no_info_title"
+        android:text="@string/patient_tab_medical_no_info_title"
         android:gravity="center"
         android:layout_marginTop="10dp"
         android:textSize="25sp"

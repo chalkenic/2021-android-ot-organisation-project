@@ -18,7 +18,6 @@ import lombok.NonNull;
 
 @Entity(foreignKeys = {
         @ForeignKey(entity=Condition.class, parentColumns="conditionId", childColumns="conditionId")
-//        @ForeignKey(entity=Condition.class, parentColumns="conditionId", childColumns="patientMedicalHistory"),
 }, indices = {@Index("conditionId")})
 
 @Data

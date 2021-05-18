@@ -15,8 +15,6 @@ import java.util.Date;
 import java.util.Locale;
 
 public class StaticMethods {
-
-
     /**
      * Method to provide easy access to format a date to custom layout, for addition within UI views.
      * @param date - Date to convert.
@@ -59,7 +57,6 @@ public class StaticMethods {
      */
     public static void insertDatabaseData(OTDatabase db) {
 
-        Log.d("add_data", "data being added!");
 
         Date[] patientDates = getPatientDOBs();
 
@@ -67,10 +64,10 @@ public class StaticMethods {
 
 
         db.conditionDAO().insertCondition( new Condition[] {
-                new Condition("Alzheimers"),
-                new Condition("Gastroenteritis"),
-                new Condition("Stroke"),
-                new Condition("Coronavirus")
+                new Condition("alzheimers"),
+                new Condition("gastroenteritis"),
+                new Condition("stroke"),
+                new Condition("coronavirus")
         });
 
         db.patientDAO().insertPatient(new Patient[] {

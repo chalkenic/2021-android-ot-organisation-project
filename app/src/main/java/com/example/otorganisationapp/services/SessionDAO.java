@@ -36,7 +36,7 @@ public interface SessionDAO {
 
     /**
      * Find patient in db by name
-     * @param id - patient id.
+     * @param arg0 - patient id.
      * @return List of all sessions attached to patient.
      */
     @Query("SELECT * FROM Session WHERE patientId = :arg0")
@@ -51,7 +51,7 @@ public interface SessionDAO {
 
     /**
      * Get patient by specific id in db
-     * @param id - database id.
+     * @param arg0 - database id.
      * @return patient that matches id (unique).
      */
     @Query("SELECT * FROM Session WHERE sessionId = :arg0")

@@ -23,80 +23,43 @@ import com.example.otorganisationapp.services.SessionDAO;
 @Database(entities = {Patient.class, Condition.class, Session.class}, version = 1, exportSchema = false)
 @TypeConverters(DBConverters.class)
 
+/**
+ * Class for handling database creation and access.
+ */
 public abstract class OTDatabase extends RoomDatabase {
 
     private static OTDatabase OTDATABASE;
 
+    /**
+     * Class holds methods to access patient table rows/columns.
+     * @return abstract patient table method class.
+     */
     public abstract PatientDAO patientDAO();
 
+    /**
+     * Class holds methods to access Medical Condition table rows/columns.
+     * @return abstract patient table method class.
+     */
     public abstract ConditionDAO conditionDAO();
 
+    /**
+     * Class holds methods to access Patient's session table rows/columns.
+     * @return abstract patient table method class.
+     */
     public abstract SessionDAO sessionDAO();
 
+    /**
+     * Method sources static RoomDatabase object; creates database if field data doesn't exist.
+     * @param context - application context.
+     * @return OT database.
+     */
     public static synchronized OTDatabase getDatabase(Context context) {
         if (OTDATABASE == null) {
             OTDATABASE = Room.databaseBuilder(context,
                     OTDatabase.class, "OT_database")
                     .allowMainThreadQueries()
-//                    .fallbackToDestructiveMigration()
-//                    .addCallback(roomCallback)
                     .build();
         }
         return OTDATABASE;
     }
 }
-
-//    private static RoomDatabase.Callback roomCallback = new RoomDatabase.Callback() {
-//
-//        @Override
-//        public void onCreate(@NonNull SupportSQLiteDatabase db) {
-//            super.onCreate(db);
-//            new PopulateDBTask(OTDATABASE).execute();
-//        }
-//    };
-//
-
-//    private static class PopulateDBTask extends AsyncTask<Void, Void, Void> {
-//        private PatientDAO patientDAO;
-//        private SessionDAO sessionDAO;
-//        private ConditionDAO conditionDAO;
-//
-//        public PopulateDBTask(OTDatabase db) {
-//            this.patientDAO = db.patientDAO();
-//            this.conditionDAO = db.conditionDAO();
-//            this.sessionDAO = db.sessionDAO();
-//        }
-//
-//        @Override
-//        protected Void doInBackground(Void... voids) {
-//            conditionDAO.insertCondition(StaticMethods.createDummyConditionData());
-//            patientDAO.insertPatient(StaticMethods.createDummyPatientData());
-//
-//        }
-//    }
-
-//    public static OTDatabase getDatabase(Context context) {
-//
-//        if (OTDATABASE == null) {
-//            Log.d("add_data", "database is currently null!");
-//
-//
-//            otDatabase = Room.databaseBuilder(context, OTDatabase.class, "OT")
-//                    .allowMainThreadQueries()
-//                    .build();
-//
-//            otDatabase.populateTables();
-//
-//        }
-////
-//
-//        StaticMethods.insertDatabaseData(otDatabase);
-//        return otDatabase;
-//    }
-
-//    private void populateTables() {
-//        if (patientDAO().getAllPatients().size() == 0) {
-//            StaticMethods.insertDatabaseData(otDatabase);
-//        }
-//    }
-//}

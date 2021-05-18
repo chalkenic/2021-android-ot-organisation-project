@@ -37,7 +37,7 @@ public interface PatientDAO {
 
     /**
      * Find patient in db by name
-     * @param name - user entry.
+     * @param arg0 - user entry.
      * @return List of all patients matching name
      */
     @Query("SELECT * FROM Patient WHERE patientName = :arg0")
@@ -52,7 +52,7 @@ public interface PatientDAO {
 
     /**
      * Get patient by specific id in db
-     * @param id - database id.
+     * @param arg0 - database id.
      * @return patient that matches id (unique).
      */
     @Query("SELECT * FROM Patient WHERE patientId = :arg0")

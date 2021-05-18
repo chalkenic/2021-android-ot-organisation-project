@@ -57,11 +57,11 @@
         android:layout_toEndOf="@+id/selected_patient_session_line_break_1"
         android:layout_centerVertical="true"
         android:paddingTop="10dp"
-
+        android:paddingEnd="4dp"
+        android:paddingStart="4dp"
         android:textColor="@color/black"
         android:textSize="15sp"
         />
-
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/selected_patient_session_date"
@@ -72,8 +72,8 @@
         android:layout_alignParentEnd="true"
 
         android:paddingTop="10dp"
-        android:paddingRight="10dp"
-        android:paddingEnd="10dp"
+        android:paddingRight="5dp"
+        android:paddingEnd="5dp"
         android:paddingStart="0dp"
         android:paddingLeft="0dp"
 
@@ -81,5 +81,6 @@
         android:textSize="15sp"
 
         tools:ignore="RelativeOverlap" />
+
 
 </RelativeLayout>

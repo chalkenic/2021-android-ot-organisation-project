@@ -36,12 +36,14 @@ public class PatientMedicalDetailsFragment extends Fragment {
         FragmentManager fm =getActivity().getSupportFragmentManager();
         View v;
 
+        // If any field within patient's medical details is null, present option to add details.
         if ((patient.getPrimaryComplaint() == null ||
                 patient.getEquipment() == null ||
                 patient.getLivingSituation() == null)) {
 
             v = inflater.inflate(R.layout.fragment_inner_patient_tab_medical_no_information, container, false);
 
+            // Button handles adding new medical records via dialog.
             ImageButton newMedInfoButton = (ImageButton)v.findViewById(R.id.patient_medical_tab_no_info_button);
 
             newMedInfoButton.setOnClickListener(new View.OnClickListener() {
@@ -53,12 +55,9 @@ public class PatientMedicalDetailsFragment extends Fragment {
 
                 }
             });
-
-
-
-
         }
          else {
+             // If medical details exist, apply TextViews to fragment & insert information from patient.
             v = inflater.inflate(R.layout.fragment_inner_patient_tab_medical, container, false);
 
             AppCompatTextView conditionTextView = (AppCompatTextView)v.findViewById(R.id.patient_tab_medical_condition_result);
@@ -66,7 +65,11 @@ public class PatientMedicalDetailsFragment extends Fragment {
             AppCompatTextView equipmentTextView = (AppCompatTextView)v.findViewById(R.id.patient_tab_medical_equipment_result);
             AppCompatTextView livingResultTextView = (AppCompatTextView)v.findViewById(R.id.patient_tab_medical_living_situation_result);
 
-            conditionTextView.setText(db.conditionDAO().getConditionById(patient.getPrimaryComplaint()).getName());
+            // grab condition name..
+            String condition = db.conditionDAO().getConditionById(patient.getPrimaryComplaint()).getName();
+
+            // Apply condition to view - capitalize first letter (point 0).
+            conditionTextView.setText(condition.substring(0, 1).toUpperCase() + condition.substring(1));
             ableTextView.setText(patient.getIsIndependentlyMobile().toString());
             equipmentTextView.setText(patient.getEquipment());
             livingResultTextView.setText(patient.getLivingSituation());

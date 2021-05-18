@@ -2,8 +2,6 @@ package com.example.otorganisationapp;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -12,23 +10,16 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.os.HandlerCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-import androidx.room.Room;
-import androidx.room.RoomDatabase;
-import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import com.example.otorganisationapp.databinding.ActivityMainBinding;
 import com.example.otorganisationapp.fragments.MainMenuFragment;
 import com.example.otorganisationapp.fragments.NewPatientFragment;
-import com.example.otorganisationapp.fragments.AllRecordsFragment;
+import com.example.otorganisationapp.fragments.AllSessionsFragment;
 import com.example.otorganisationapp.fragments.AllPatientsFragment;
 import com.example.otorganisationapp.repository.OTDatabase;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 public class MainActivity extends AppCompatActivity  {
 
@@ -37,9 +28,7 @@ public class MainActivity extends AppCompatActivity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-
-        //Fragments can go back.
+        // Drawable files are backwards-compatible with older API versions.
         AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
 
         ActivityMainBinding binding = ActivityMainBinding.inflate(getLayoutInflater());
@@ -68,7 +57,7 @@ public class MainActivity extends AppCompatActivity  {
                         return true;
 
                     case R.id.bottom_nav_all_records:
-                        changeCurrentFragment(new AllRecordsFragment(), "All records");
+                        changeCurrentFragment(new AllSessionsFragment(), "All records");
                         return true;
 
                     case R.id.bottom_nav_home:
@@ -128,7 +117,7 @@ public class MainActivity extends AppCompatActivity  {
                 return true;
 
             case R.id.options_menu_allRecords:
-                changeCurrentFragment(new AllRecordsFragment(), "All patients");
+                changeCurrentFragment(new AllSessionsFragment(), "All patients");
 
                 return true;
 
@@ -139,7 +128,7 @@ public class MainActivity extends AppCompatActivity  {
     }
 
     /**
-     *
+     * change defined fragment within activity to a different fragment, dictated by "f" param.
      * @param f - fragment to navigate to.
      * @param tag - reference prior fragment so clicking back on System UI can return to original fragment.
      */
@@ -152,39 +141,5 @@ public class MainActivity extends AppCompatActivity  {
                 .addToBackStack(tag)
                 .commit();
     }
-//
-//    public OTDatabase getDb() {
-//        return db;
-//    }
-
-//    @Override
-//    public void onResume()
-//    {
-//        super.onResume();
-//        theInstance = this;
-//    }
-
-
-
-
-//    public void showDatePickerDialog(View v) {
-//        DialogFragment newDateFragment = new DatePickerFragment();
-//        newDateFragment.show(getSupportFragmentManager(), "datePicker");
-//
-//    }
-
-
-//    @Override
-//    public void onClick(View v) {
-//
-//        switch(v.getId()) {
-//
-//            case R.id.patient_form_choose_date: {
-//                datePicker.show(getSupportFragmentManager(), "datePicker");
-//                break;
-//            }
-//        }
-//    }
-
 
 }

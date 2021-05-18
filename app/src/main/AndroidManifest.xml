@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.otorganisationapp">
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.otorganisationapp"
+    android:installLocation="preferExternal">
 
-<!--    Allow camera & read privileges within app.-->
+<!--    Allow specific  privileges within app.-->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.CALL_PHONE" />
-
     <uses-permission android:name="android.permission.CAMERA" />
 
     <application

@@ -33,7 +33,7 @@
                 android:layout_gravity="center_horizontal"
                 app:cardCornerRadius="75dp">
 
-                <ImageView
+                <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/patient_tab_basic_pic"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"

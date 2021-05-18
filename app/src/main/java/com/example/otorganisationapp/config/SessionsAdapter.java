@@ -1,10 +1,12 @@
 package com.example.otorganisationapp.config;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import androidx.fragment.app.Fragment;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -117,7 +119,7 @@ public class SessionsAdapter extends ArrayAdapter<Session> {
                     // Attach views to holder fields.
                     holder.sessionImage = (AppCompatImageView) row.findViewById(R.id.selected_patient_session_image);
                     holder.sessionId = (AppCompatTextView) row.findViewById(R.id.selected_patient_session_id);;
-                    holder.lineBreak1 = (AppCompatTextView) row.findViewById(R.id.selected_patient_session_line_break_1);;
+                    holder.lineBreak1 = (AppCompatTextView) row.findViewById(R.id.selected_patient_session_line_break_1);
                     holder.sessionType = (AppCompatTextView) row.findViewById(R.id.selected_patient_session_type);
                     holder.sessionDate = (AppCompatTextView) row.findViewById(R.id.selected_patient_session_date);;
                     row.setTag(holder);
@@ -132,7 +134,7 @@ public class SessionsAdapter extends ArrayAdapter<Session> {
 
                 // apply session values into object.
                 holder.sessionImage.setImageResource(R.drawable.icon_patient_session_list_item);
-                holder.sessionId.setText("Record id: " + s.getSessionId());
+                holder.sessionId.setText("ID: " + s.getSessionId());
                 holder.sessionType.setText("Type: " + s.getSessionType());
                 holder.sessionDate.setText(StaticMethods.getFormattedDate(s.getDateOfSession()));
 
@@ -140,18 +142,22 @@ public class SessionsAdapter extends ArrayAdapter<Session> {
             // Return a larger row layout if using all records.
             } else {
 
+                // check if row is empty before adding information.
                 if (row == null) {
 
                     inflater = (LayoutInflater) this.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
+                    //Attach row view layout into main layout CardView.
                     row = inflater.inflate(sessionResourceId, parent, false);
 
+                    // Static class to hold all patient and session attributes required.
                     holder = new ViewHolder();
 
+                    // Attach views to holder fields.
                     holder.sessionPatient = (AppCompatTextView) row.findViewById(R.id.selected_record_patient_name);
                     holder.sessionImage = (AppCompatImageView) row.findViewById(R.id.selected_record_image);
                     holder.sessionId = (AppCompatTextView) row.findViewById(R.id.selected_record_id);;
-                    holder.lineBreak1 = (AppCompatTextView) row.findViewById(R.id.selected_record_line_break_1);;
+                    holder.lineBreak1 = (AppCompatTextView) row.findViewById(R.id.selected_record_line_break_1);
                     holder.sessionType = (AppCompatTextView) row.findViewById(R.id.selected_record_type);
                     holder.sessionDate = (AppCompatTextView) row.findViewById(R.id.selected_record_date);
                     row.setTag(holder);
@@ -160,23 +166,45 @@ public class SessionsAdapter extends ArrayAdapter<Session> {
                     holder = (ViewHolder)row.getTag();
                 }
 
+                // Grab session at list position.
                 Session s = getItem(position);
 
+
+
+
+                // Grab patient residing at session position.
                 Patient sessionPatient = db.patientDAO().getPatientById(s.getPatientId());
 
-                holder.sessionPatient.setText("Patient: " + sessionPatient.getName());
+                // Patient name can be added correctly if length below 30 characters
+                if (sessionPatient.getName().length() < 30) {
+
+                    String patientText = getContext().getString(
+                            R.string.all_patient_sessions_name,
+                            sessionPatient.getName());
+
+                    holder.sessionPatient.setText(String.valueOf(patientText));
+                // Some of name value cut off if over 30 characters.
+                } else {
+                    int nameMaxLimit = 30;
+
+                    // string cuts down name to 30 characters.
+                    String patientNameEdited = sessionPatient.getName().substring(0, nameMaxLimit);
+
+                    String patientText = getContext().getString(
+                            R.string.all_patient_sessions_name_long,
+                            patientNameEdited);
+
+                    // Apply reduced-size patient name to TextView.
+                    holder.sessionPatient.setText(String.valueOf(patientText));
+                }
+
+                // Apply data to TextViews according to session & patient data.
                 holder.sessionImage.setImageResource(R.drawable.icon_list_record);
-                holder.sessionId.setText("Record id: " + s.getSessionId());
+                holder.sessionId.setText("ID: " + s.getSessionId());
                 holder.sessionType.setText("Type: " + s.getSessionType());
                 holder.sessionDate.setText(StaticMethods.getFormattedDate(s.getDateOfSession()));
 
             }
-
-            // get existing row data via tag if exists when sourced originally.
-//        } else {
-//            holder = (IndividualSessionViewHolder)row.getTag();
-//        }
-
         return row;
 
     }

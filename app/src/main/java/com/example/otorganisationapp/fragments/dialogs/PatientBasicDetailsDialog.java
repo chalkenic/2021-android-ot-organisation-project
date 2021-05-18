@@ -65,7 +65,6 @@ public class PatientBasicDetailsDialog extends DialogFragment {
 
                     // Close dialog on submission.
                     dismiss();
-
                 }
                 else {
                     Toast.makeText(getContext(), "Number must be longer than 5 digits!", Toast.LENGTH_SHORT).show();

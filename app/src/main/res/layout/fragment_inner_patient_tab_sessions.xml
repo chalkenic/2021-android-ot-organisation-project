@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 
+<ScrollView android:layout_height="match_parent"
+    android:layout_width="360dp"
+    android:layout_gravity="center_horizontal"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 <RelativeLayout
     android:layout_gravity="center_horizontal"
-    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="360dp"
     android:layout_height="wrap_content">
 
@@ -63,3 +66,4 @@
 </androidx.appcompat.widget.LinearLayoutCompat>
 
 </RelativeLayout>
+</ScrollView>

@@ -91,17 +91,13 @@ public class NewPatientFragment extends Fragment {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
 
+                // Enum used to ensure values are always constant within Radio.
                 switch(checkedId) {
-                    case R.id.radio_gender_male:
-                        theGender = Gender.Male;
+                    case R.id.radio_gender_male: theGender = Gender.Male;
                         break;
-
-                    case R.id.radio_gender_female:
-                        theGender = Gender.Female;
+                    case R.id.radio_gender_female: theGender = Gender.Female;
                         break;
-
-                    case R.id.radio_gender_undefined:
-                        theGender = Gender.Undefined;
+                    case R.id.radio_gender_undefined: theGender = Gender.Undefined;
                         break;
                 }
             }
@@ -128,17 +124,15 @@ public class NewPatientFragment extends Fragment {
 
                     // Source title from EditText box & insert into String.
                     EditText title = (EditText) getActivity().findViewById(R.id.patient_form_title);
-
-
-
                     patientTitle = title.getText().toString();
-                    Log.d("new_pat", "1: " + title.getText().toString());
+
 
                     // Source patient name from EditText box & insert into String.
                     EditText name = (EditText) getActivity().findViewById(R.id.patient_form_name);
-                    Log.d("new_pat", "2: " + name.getText().toString());
+
                     patientName = name.getText().toString();
 
+                    // Ensure both fields include entry. Throw error if not.
                     if (patientTitle.equals("")) {
                         error = "title";
                         throw new NullPointerException();
@@ -148,21 +142,20 @@ public class NewPatientFragment extends Fragment {
                         throw new NullPointerException();
                     }
 
+                    // Ensure a gender is chosen. Throw error if not.
                     if (theGender != null) {
-                        Log.d("new_pat", "3: " + theGender.toString());
                         patientGender = theGender.toString();
                     } else {
                         error = "gender";
                         throw new NullPointerException();
                     }
 
-
                     EditText nhsNumber = (EditText) getActivity().findViewById(R.id.patient_form_nhs_number);
 
+                    // NHS number must be exactly 10 digits.
                     if (nhsNumber.getText().length() != 10) {
                         throw new NumberFormatException();
                     } else {
-                        Log.d("new_pat", "4: " + nhsNumber.getText().toString());
                         patientNHSNumber = nhsNumber.getText().toString();
                     }
 
@@ -170,11 +163,10 @@ public class NewPatientFragment extends Fragment {
                     TextView dob = (TextView) getActivity().findViewById(R.id.patient_form_dob);
 
 
+                    // Patient date from calendar always returns at least 5 characters. Error if no
+                    // date chosen.
                     if (dob.getText().length() > 5) {
-                        Log.d("new_pat", "5: " + dob.getText().toString());
-
                         patientDob = StaticMethods.setFormattedDate(dob.getText().toString());
-                        Log.d("new_pat", "5.5: " + patientDob.toString());
                     } else {
                         error = "dob";
                         throw new NullPointerException();
@@ -182,29 +174,20 @@ public class NewPatientFragment extends Fragment {
 
                     EditText phoneNo = (EditText) getActivity().findViewById(R.id.patient_phone_no);
 
-                    Log.d("new_pat", "phone number length: " + phoneNo.getText().length());
-
-
+                    // Phone numbers sometimes can be shortened if app pertains only to
+                    // local area code. Ensure value exceeds 4 digits.
                     if (phoneNo.getText().length() > 4) {
-                        Log.d("new_pat", "6: " + phoneNo.getText().toString());
                         patientPhoneNo = phoneNo.getText().toString();
-                    } else {
-                        throw new NumberFormatException();
-                    }
+                    } else { throw new NumberFormatException(); }
 
-
-                    Log.d("new_pat", "creating patient " + patientName + "...");
-
-
+                    // Insert new patient into database. patientId will be generated automatically.
                     db.patientDAO().insertPatient(
                             new Patient(patientTitle, patientName, patientGender,
                                     patientNHSNumber, patientDob, patientPhoneNo)
                     );
 
+                    // Print patient's creation into toast.
                     db.patientDAO().getPatientsByName(patientName);
-
-                    Log.d("new_pat", "7: patient created:" + patientName);
-
                     Toast.makeText(getContext(), ("Patient: " + patientName + " added to database."), Toast.LENGTH_SHORT)
                             .show();
                     activity.changeCurrentFragment(new MainMenuFragment(), "Main Menu");
@@ -226,16 +209,9 @@ public class NewPatientFragment extends Fragment {
                     if (patientNHSNumber == null) {
                         nullFormEntryToast("NHS number (10 digits)");
                     } else {
-                        Log.d("new_pat", "WHY AM I HERE");
                         nullFormEntryToast("phone number");
                     }
                 }
-
-
-//                catch (ParseException e) {
-//                    Log.d("what_am_i", "null pointer gender");
-//                    nullFormEntryToast("date of birth");
-//                }
 
             }
 
@@ -243,16 +219,18 @@ public class NewPatientFragment extends Fragment {
         return v;
     }
 
+    /**
+     * Method called when error thrown.
+     * @param field - ordered point of form where error occurred.
+     */
     public void nullFormEntryToast(String field) {
         Toast.makeText(getContext(), ("Please enter valid patient " + field), Toast.LENGTH_SHORT).show();
     }
 
-//    @Override
-//    public void onAttach(@NonNull Context context) {
-//        theContext = (FragmentActivity) context;
-//        super.onAttach(context);
-//    }
-
+    /**
+     * Create a String value of the date set within the calendar widget on new patient form. Apply
+     * value into TextView on close.
+     */
     public final DatePickerDialog.OnDateSetListener datePickerListener = new DatePickerDialog.OnDateSetListener() {
 
         @Override
@@ -264,6 +242,9 @@ public class NewPatientFragment extends Fragment {
         }
     };
 
+    /**
+     * Enum that covers gender roles within patient form.
+     */
     enum Gender {
         Male,
         Female,

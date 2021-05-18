@@ -55,7 +55,6 @@ public class PatientSessionsFragment extends Fragment {
         AppCompatButton newSessionButton = (AppCompatButton) v.findViewById(R.id.patient_tab_sessions_new_session_button);
 
         OTDatabase db = OTDatabase.getDatabase(getContext());
-
         FragmentManager fm =getActivity().getSupportFragmentManager();
 
         // get Activity for db access.
@@ -63,24 +62,32 @@ public class PatientSessionsFragment extends Fragment {
 
         List<Session> patientSessions = db.sessionDAO().getSessionsByPatientId(patient.getPatientId());
 
+        // Source sessions adaptor for application of patient's session into list row.
         adapter = new SessionsAdapter(getContext(), R.layout.list_view_fragment_inner_patient_session, 1);
 
+        //Apply row styling & data to ListView.
         patientSessionsView.setAdapter(adapter);
 
+        // Implement data to be inserted within rows into adapter.
         adapter.addSessions(patientSessions);
 
+        // Open Alert dialog of information specific to session on row item click.
         patientSessionsView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-
-
+                // Source object at position of row..
                 sessionClicked = (Session) db.sessionDAO().getSessionById(((Session)patientSessionsView.getItemAtPosition(position)).sessionId);
 
                 AppCompatTextView textView = new AppCompatTextView(getContext());
 
+                String rowTitle = getString(
+                        R.string.patient_tab_sessions_list_data,
+                        sessionClicked.getSessionId().toString(),
+                        patient.getName());
+
                 // Use custom title for larger input.
-                textView.setText("Record " + sessionClicked.getSessionId() + " notes for " + patient.getName());
+                textView.setText(rowTitle);
                 textView.setTextSize(22);
                 textView.setTypeface(null, Typeface.BOLD);
                 textView.setTextColor(Color.BLACK);
@@ -91,8 +98,9 @@ public class PatientSessionsFragment extends Fragment {
                 // Show session notes in dialog.
                 AlertDialog.Builder b = new AlertDialog.Builder(getContext());
                 b.setCustomTitle(textView);
-                b.setMessage(sessionClicked.getSessionNotes());
 
+                // Apply session notes & show dialog.
+                b.setMessage(sessionClicked.getSessionNotes());
                 b.show();
 
             }
@@ -103,6 +111,7 @@ public class PatientSessionsFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
+                // Open dialog object that handles input of new data relating to patient.
                 final PatientNewSessionDialog dialog = new PatientNewSessionDialog(patient);
 
                 dialog.show(fm, "New Patient Session");

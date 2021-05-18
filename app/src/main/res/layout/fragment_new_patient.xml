@@ -66,21 +66,21 @@
             android:layout_marginTop="180dp"
             android:orientation="horizontal" >
 
-            <RadioButton
+            <androidx.appcompat.widget.AppCompatRadioButton
                 android:id="@+id/radio_gender_male"
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
 
                 android:text="@string/new_patient_gender_male" />
 
-            <RadioButton
+            <androidx.appcompat.widget.AppCompatRadioButton
                 android:id="@+id/radio_gender_female"
                 android:layout_width="90dp"
                 android:layout_height="wrap_content"
 
                 android:text="@string/new_patient_gender_female" />
 
-            <RadioButton
+            <androidx.appcompat.widget.AppCompatRadioButton
                 android:id="@+id/radio_gender_undefined"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"

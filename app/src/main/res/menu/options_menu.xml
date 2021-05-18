@@ -22,7 +22,7 @@
         />
     <item
         android:id="@+id/options_menu_allRecords"
-        android:title="@string/options_menu_allrecords_title"
+        android:title="@string/options_menu_allRecords_title"
         />
 
 </menu>

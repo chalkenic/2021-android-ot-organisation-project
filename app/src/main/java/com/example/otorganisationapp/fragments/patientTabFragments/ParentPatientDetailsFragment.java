@@ -32,9 +32,8 @@ public class ParentPatientDetailsFragment extends Fragment {
 
     // Local patient id value.
     private String patientId;
-    private static Integer patientPage;
-//    TabLayout layout;
-//    ViewPager pager;
+    private  Integer patientPage;
+
 
 
     public ParentPatientDetailsFragment() {}
@@ -69,9 +68,7 @@ public class ParentPatientDetailsFragment extends Fragment {
         // Database access
         OTDatabase db = OTDatabase.getDatabase(getContext());
 
-        // Assign tab layout and page viewer from Ids.
-        ViewPager pager = (ViewPager)v.findViewById(R.id.patientPager);
-        TabLayout layout = (TabLayout)v.findViewById(R.id.tabLayout);
+
 
 
         // Assign patient object from data provided.
@@ -80,15 +77,20 @@ public class ParentPatientDetailsFragment extends Fragment {
 
         // Build navigation tabs at top of screen.
         String[] patientTabList = this.getResources().getStringArray(R.array.patientTabs);
+
+        // Assign tab layout and page viewer from Ids.
+        TabLayout layout = (TabLayout)v.findViewById(R.id.tabLayout);
+
+        ViewPager pager = (ViewPager)v.findViewById(R.id.patientPager);
+
+        // Create tabs class, containing array of tabs to apply into TabLayout.
         TabsFragmentAdapter adapter = new TabsFragmentAdapter(this.getChildFragmentManager(), patientTabList);
 
-        // Attach pager to adaptor.
+        // Attach PagerView object to all tabs within adapter.
         pager.setAdapter(adapter);
 
-        //Assign pager into tab layout.
+        //Assign ViewPager layouts into each tab created.
         layout.setupWithViewPager(pager);
-
-
 
         return v;
     }
@@ -102,7 +104,8 @@ public class ParentPatientDetailsFragment extends Fragment {
     }
 
     /**
-     *
+     * Object on static initialization grabs patient's name & position of patient within allPatients
+     * ListView, and and stores values within object fields for later creation of tab data.
      * @param patientName - patient's name in database.
      * @return bundle containing patient id for fragment navigation.
      */
@@ -118,7 +121,7 @@ public class ParentPatientDetailsFragment extends Fragment {
     }
 
     /**
-     * Class for handling the fragments within the Tabs.
+     * Class for handling the all fragments within the Tabs layout.
      */
     public static class TabsFragmentAdapter extends FragmentPagerAdapter {
 
@@ -126,6 +129,7 @@ public class ParentPatientDetailsFragment extends Fragment {
         private final String[] tabTitles;
 
         TabsFragmentAdapter(FragmentManager manager, String[] tabTitles) {
+            // Resume state on fragment re-open (if navigating to different app)
             super(manager, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
             this.tabTitles = tabTitles;
         }
@@ -133,8 +137,6 @@ public class ParentPatientDetailsFragment extends Fragment {
         // Swap between fragments.
         @Override
         public Fragment getItem(int position) {
-
-            Log.d("fragment_no", "fragment" + position);
 
             switch (position){
                 case 1:
@@ -144,15 +146,15 @@ public class ParentPatientDetailsFragment extends Fragment {
                 default:
                     return new PatientBasicDetailsFragment(ParentPatientDetailsFragment.patient);
 
-
             }
         }
-
+        // Source total tab count. static class requirement
         @Override
         public int getCount() {
             return this.tabTitles.length;
         }
 
+        // Get title of page at specific position. static class requirement.
         @Override
         public CharSequence getPageTitle(int position) {
             return this.tabTitles[position];
